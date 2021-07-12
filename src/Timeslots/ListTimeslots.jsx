@@ -17,6 +17,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import MuiAlert from '@material-ui/lab/Alert';
 import Fab from '@material-ui/core/Fab';
+import MContainer from '@material-ui/core/Container';
 import AddIcon from '@material-ui/icons/Add';
 
 dayjs.extend(utc);
@@ -46,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 700,
   },
   root: {
-    backgroundColor: theme.palette.background.paper,
     position: 'relative',
     minHeight: 100,
   },
@@ -74,7 +74,7 @@ const TimeslotsPage = (props) => {
   const {timeslots} = props;
   console.log(`props ${JSON.stringify(props.timeslots)}`);
   return (
-    <div>  
+    <MContainer component="main">
     <div className="col-md-6 col-md-offset-3">
       <h3>Manage Timeslots</h3>
         {
@@ -128,7 +128,7 @@ const TimeslotsPage = (props) => {
             </Fab>    
         </Link>
     </div>
-    </div>
+    </MContainer>
   );
 }
 

@@ -17,22 +17,10 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-function Copyright() {
-  return (
-    <MTypography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <MLink color="inherit" to="https://material-ui.com/">
-        Your Website
-      </MLink>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </MTypography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -152,9 +140,6 @@ const SignIn = (props) => {
           </MGrid>
         </form>
       </div>
-      <MBox mt={8}>
-        <Copyright />
-      </MBox>
     </MContainer>
   );
 }
