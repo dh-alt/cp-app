@@ -8,7 +8,6 @@ import timezone from 'dayjs/plugin/timezone';
 import {alertActions, timeslotActions, vanActions} from '../_actions';
 
 import MButton from '@material-ui/core/Button';
-import MCssBaseline from '@material-ui/core/CssBaseline';
 import MTextField from '@material-ui/core/TextField';
 import MTypography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -119,7 +118,6 @@ const EditTimeslot = (props) => {
 
   return (
     <MContainer component="main" maxWidth="xs">
-      <MCssBaseline />
       <div className={classes.paper}>
         <MTypography component="h1" variant="h5">
           Edit Timeslot

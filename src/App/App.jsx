@@ -14,6 +14,8 @@ import {ListVans, AddVanPage, EditVanPage} from '../Vans'
 import {ListTimeslots, AddTimeslotPage, EditTimeslotPage} from '../Timeslots'
 import {SlotSelectionPage} from '../Reservations'
 
+import MCssBaseline from '@material-ui/core/CssBaseline';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +28,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="jumbotron">
-        <div className="container">
-          <div className="col-sm-8 col-sm-offset-2">
+          <React.Fragment>
+            <MCssBaseline />
             <Router history={history}>
               <NavigationBar />
               <Switch>
@@ -47,9 +48,7 @@ class App extends React.Component {
                 <Redirect from="*" to="/" />
               </Switch>
             </Router>
-          </div>
-        </div>
-      </div>
+          </React.Fragment>
     );
   }
 }

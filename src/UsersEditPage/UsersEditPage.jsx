@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {alertActions, userActions} from '../_actions';
 
 import MButton from '@material-ui/core/Button';
-import MCssBaseline from '@material-ui/core/CssBaseline';
 import MTextField from '@material-ui/core/TextField';
 import MLink from '@material-ui/core/Link';
 import MGrid from '@material-ui/core/Grid';
@@ -86,7 +85,6 @@ const EditUser = (props) => {
 
   return (
     <MContainer component="main" maxWidth="xs">
-      <MCssBaseline />
       <div className={classes.paper}>
         <MTypography component="h1" variant="h5">
           Edit User
