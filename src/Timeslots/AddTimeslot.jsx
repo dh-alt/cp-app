@@ -8,7 +8,7 @@ import timezone from 'dayjs/plugin/timezone';
 import {alertActions, timeslotActions, vanActions} from '../_actions';
 
 import MButton from '@material-ui/core/Button';
-import MTextField from '@material-ui/core/TextField';
+\import MTextField from '@material-ui/core/TextField';
 import MTypography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import MContainer from '@material-ui/core/Container';
@@ -141,10 +141,9 @@ const AddTimeslot = (props) => {
         }
 
         <form className={classes.form} onSubmit={formik.handleSubmit}>
-            <MFormControl fullWidth className={classes.formControl}>
+            <MFormControl className={classes.formControl}>
                 <MInputLabel id="status-select-input-label">Charging Van</MInputLabel>
                 <MSelect
-                variant="outlined"
                 labelId="vanId"
                 id="vanId"
                 name="vanId"
@@ -160,8 +159,6 @@ const AddTimeslot = (props) => {
                 </MSelect>
             </MFormControl>
             <MTextField
-              fullWidth
-              variant="outlined"
               id="startTime"
               label="startTime"
               type="datetime-local"
@@ -175,8 +172,6 @@ const AddTimeslot = (props) => {
               helperText={formik.touched.startTime && formik.errors.startTime}
               />
             <MTextField
-              fullWidth
-              variant="outlined"
               id="endTime"
               label="endTime"
               type="datetime-local"
@@ -191,13 +186,12 @@ const AddTimeslot = (props) => {
             />
 
             <MTextField
-              inputRef={googlePlaceRef}
-              variant="outlined"
-              margin="normal"
               fullWidth
+              variant="outlined"
+              inputRef={googlePlaceRef}
               id="address"
-              label="address"
               name="address"
+              placeholder="address"
               onChange={formik.handleChange}
               value={formik.values.address}
               error={formik.touched.address && Boolean(formik.errors.address)}
@@ -213,8 +207,8 @@ const AddTimeslot = (props) => {
             label="amount"
             name="amount"
             autoComplete="amount"
-            onChange={formik.handleChange}
             value={formik.values.amount}
+            onChange={formik.handleChange}
             error={formik.touched.amount && Boolean(formik.errors.amount)}
             helperText={formik.touched.amount && formik.errors.amount}            
           />

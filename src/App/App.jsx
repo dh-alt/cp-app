@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import {history} from '../_helpers';
 import {alertActions} from '../_actions';
-import {PrivateRoute, NavigationBar, Footer} from '../_components';
+import {PrivateRoute, NavigationBar} from '../_components';
 import {HomePage} from '../HomePage';
 import {LoginPage} from '../LoginPage';
 import {RegisterPage} from '../RegisterPage';
@@ -14,9 +14,7 @@ import {ListVans, AddVanPage, EditVanPage} from '../Vans'
 import {ListTimeslots, AddTimeslotPage, EditTimeslotPage} from '../Timeslots'
 import {SlotSelectionPage} from '../Reservations'
 
-import { ThemeProvider } from "@material-ui/core/styles";
-import MCssBaseline from "@material-ui/core/CssBaseline";
-import { theme } from "../_components/main-style.js";
+import MCssBaseline from '@material-ui/core/CssBaseline';
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +28,7 @@ class App extends React.Component {
 
   render() {
     return (
-          <ThemeProvider theme={theme}>
+          <React.Fragment>
             <MCssBaseline />
             <Router history={history}>
               <NavigationBar />
@@ -49,9 +47,8 @@ class App extends React.Component {
                 <Route path="/register" component={RegisterPage} />
                 <Redirect from="*" to="/" />
               </Switch>
-              <Footer />
             </Router>
-          </ThemeProvider>
+          </React.Fragment>
     );
   }
 }

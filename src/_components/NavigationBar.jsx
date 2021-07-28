@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Avatar from '@material-ui/core/Avatar';
+import { deepOrange, deepPurple } from '@material-ui/core/colors';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
@@ -20,23 +21,20 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import { primaryColor, secondaryColor } from "./main-style.js";
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  brand: {
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
     flexGrow: 1,
   },
-  avatar: {
-    backgroundColor: primaryColor,
+  purple: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
   },
-  navbar: {
-    backgroundColor: "transparent",
-    color: secondaryColor,
-    boxShadow: "none",
-  }
 }));
 
 export const NavBar = (props) => {
@@ -77,7 +75,8 @@ export const NavBar = (props) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-      {auth && props.user && (
+      {
+          auth && props.user && (
                 <div>
                     <ListItem button key={'users'} component={Link} to="/users">
                         <ListItemText primary={'Users'} />
@@ -100,20 +99,31 @@ export const NavBar = (props) => {
                 </div>
           )
       }  
+      <ListItem button key={'loginout'} component={Link} to="/login">
+        <ListItemText primary={ props.user ? 'Logout' : 'Login'} />
+      </ListItem>
+      </List>
+      <Divider />  
+      <List>
+        {['About Us', 'Frequently Asked Questions'].map((text, index) => (
+          <ListItem button key={text} component={Link} to="/">
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
       </List>
     </div>
   );
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.navbar}>
+      <AppBar position="static">
         <Toolbar>
-          {auth && props.user && (
           <IconButton onClick={toggleDrawer(anchor, true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          )}
-          <a href="/" className={classes.brand}>CP APP</a>
+          <Typography variant="h6" className={classes.title}>
+            CP APP
+          </Typography>
           {
             !props.user && (
               <Button color="inherit" href="/login">Login</Button>
@@ -128,7 +138,7 @@ export const NavBar = (props) => {
                 onClick={handleMenu}
                 color="inherit"
               >
-              <Avatar className={classes.avatar}>{props.user.firstname[0].toUpperCase()}{props.user.lastname[0].toUpperCase()}</Avatar>
+              <Avatar className={classes.purple}>{props.user.firstname[0].toUpperCase()}{props.user.lastname[0].toUpperCase()}</Avatar>
               </IconButton>
               <Menu
                 id="menu-appbar"

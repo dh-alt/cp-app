@@ -12,7 +12,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import MContainer from '@material-ui/core/Container';
 import MuiAlert from '@material-ui/lab/Alert';
 
 
@@ -50,7 +49,7 @@ const UsersPage = (props) => {
   const {user, users} = props;
   console.log(`props ${JSON.stringify(props.user.user)}`);
   return (
-    <MContainer component="main">
+    <div className="col-md-6 col-md-offset-3">
       <h3>Manage Users</h3>
         {
               props.alert.message &&
@@ -88,7 +87,7 @@ const UsersPage = (props) => {
             </Table>
           </TableContainer>
           }
-    </MContainer>
+    </div>
   );
 }
 

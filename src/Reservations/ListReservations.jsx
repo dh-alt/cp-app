@@ -8,7 +8,6 @@ import timezone from 'dayjs/plugin/timezone';
 import {timeslotActions} from '../_actions';
 
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import MContainer from '@material-ui/core/Container';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -43,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 700,
   },
   root: {
+    backgroundColor: theme.palette.background.paper,
     position: 'relative',
     minHeight: 100,
   },
@@ -70,7 +70,7 @@ const TimeslotsPage = (props) => {
   const {timeslots} = props;
   console.log(`props ${JSON.stringify(props.timeslots)}`);
   return (
-    <MContainer component="main">
+    <div>  
     <div className="col-md-6 col-md-offset-3">
       <h3>Manage Timeslots</h3>
         {
@@ -124,7 +124,7 @@ const TimeslotsPage = (props) => {
             </Fab>    
         </Link>
     </div>
-    </MContainer>
+    </div>
   );
 }
 
