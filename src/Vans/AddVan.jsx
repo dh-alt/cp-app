@@ -173,9 +173,11 @@ const AddVan = (props) => {
             error={formik.touched.year && Boolean(formik.errors.year)}
             helperText={formik.touched.year && formik.errors.year}
           />
-            <MFormControl className={classes.formControl}>
+            <MFormControl fullWidth className={classes.formControl}>
                 <MInputLabel id="status-select-input-label">Status</MInputLabel>
                 <MSelect
+                variant="outlined"
+                fullWidth
                 labelId="status"
                 id="status"
                 name="status"

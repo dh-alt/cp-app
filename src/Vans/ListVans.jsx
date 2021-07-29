@@ -12,6 +12,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import MContainer from '@material-ui/core/Container';
 import MuiAlert from '@material-ui/lab/Alert';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -39,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 700,
   },
   root: {
-    backgroundColor: theme.palette.background.paper,
     position: 'relative',
     minHeight: 100,
   },
@@ -67,56 +67,50 @@ const VansPage = (props) => {
   const {vans} = props;
   console.log(`props ${JSON.stringify(props.vans)}`);
   return (
-    <div>  
-    <div className="col-md-6 col-md-offset-3">
+    <MContainer component="main">
       <h3>Manage Vans</h3>
-        {
-              props.alert.message &&
-                <MuiAlert elevation={6} variant="standard" severity={`${props.alert.type}`}>
-                  {props.alert.message}
-                </MuiAlert>
-        }
-
+      {props.alert.message &&
+        <MuiAlert elevation={6} variant="standard" severity={`${props.alert.type}`}>
+          {props.alert.message}
+        </MuiAlert>
+      }
       {vans.loading && <em>Loading vans...</em>}
       {vans.items &&
-                  <TableContainer component={Paper}>
-                  <Table className={classes.table} aria-label="customized table">
-                    <TableHead>
-                      <TableRow>
-                        <StyledTableCell>Name</StyledTableCell>
-                        <StyledTableCell align="right">Status</StyledTableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {vans.items.length === 0 && <em><center>No vans found.</center></em>}
-                      {vans.items.map((van, index) =>
-                        <StyledTableRow key={van.id}>
-                          <StyledTableCell component="th" scope="row">
-                          <Link to={{
-                            pathname: `/vans/${van.id}/edit`,
-                            state: {...van}
-                          }}>
-                                {van.name}
-                            </Link>
-                          </StyledTableCell>
-                          <StyledTableCell align="right">{van.status}</StyledTableCell>
-                        </StyledTableRow>
-                      )}
-                    </TableBody>
-            </Table>
-          </TableContainer>
-          }
-
-
-    </div>
-    <div className={classes.root}>
-        <Link to='/vans/add'>
-            <Fab color="primary" className={classes.fab} aria-label="add">
-                <AddIcon />
-            </Fab>    
-        </Link>
-    </div>
-    </div>
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Name</StyledTableCell>
+                <StyledTableCell align="right">Status</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {vans.items.length === 0 && <em><center>No vans found.</center></em>}
+              {vans.items.map((van, index) =>
+                <StyledTableRow key={van.id}>
+                  <StyledTableCell component="th" scope="row">
+                  <Link to={{
+                    pathname: `/vans/${van.id}/edit`,
+                    state: {...van}
+                  }}>
+                        {van.name}
+                    </Link>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{van.status}</StyledTableCell>
+                </StyledTableRow>
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      }
+      <div className={classes.root}>
+          <Link to='/vans/add'>
+              <Fab color="primary" className={classes.fab} aria-label="add">
+                  <AddIcon />
+              </Fab>    
+          </Link>
+      </div>
+    </MContainer>
   );
 }
 
