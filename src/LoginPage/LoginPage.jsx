@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {alertActions, userActions} from '../_actions';
 
 import MButton from '@material-ui/core/Button';
-import MCssBaseline from '@material-ui/core/CssBaseline';
 import MTextField from '@material-ui/core/TextField';
 import MLink from '@material-ui/core/Link';
 import MGrid from '@material-ui/core/Grid';
@@ -18,22 +17,10 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-function Copyright() {
-  return (
-    <MTypography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <MLink color="inherit" to="https://material-ui.com/">
-        Your Website
-      </MLink>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </MTypography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -86,7 +73,6 @@ const SignIn = (props) => {
 
   return (
     <MContainer component="main" maxWidth="xs">
-      <MCssBaseline />
       <div className={classes.paper}>
         <MTypography component="h1" variant="h5">
           Sign in
@@ -154,9 +140,6 @@ const SignIn = (props) => {
           </MGrid>
         </form>
       </div>
-      <MBox mt={8}>
-        <Copyright />
-      </MBox>
     </MContainer>
   );
 }

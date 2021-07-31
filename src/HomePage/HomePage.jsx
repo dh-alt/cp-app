@@ -12,6 +12,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import MContainer from '@material-ui/core/Container';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -49,13 +50,13 @@ const HomePage = (props) => {
   const {user, users} = props;
   console.log(`props ${JSON.stringify(props.user.user)}`);
   return (
-    <div className="col-md-6 col-md-offset-3">
+    <MContainer component="main">
       <h3>Welcome to CA App </h3>
       <p>TODO: Use translations</p>
       <p>TODO: Authorization</p>
       <p>TODO: Edit my profile</p>
       <p>TODO: Change password</p>
-    </div>
+    </MContainer>
   );
 }
 

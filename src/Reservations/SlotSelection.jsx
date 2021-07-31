@@ -9,7 +9,6 @@ import {alertActions, timeslotActions} from '../_actions';
 import {TimeslotRadioGroup} from './';
 
 import MButton from '@material-ui/core/Button';
-import MCssBaseline from '@material-ui/core/CssBaseline';
 import MTextField from '@material-ui/core/TextField';
 import MTypography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -112,7 +111,6 @@ const SlotSelection = (props) => {
   console.log(`formik ${JSON.stringify(formik.values)}`);
   return (
     <MContainer component="main" maxWidth="xs">
-      <MCssBaseline />
       <div className={classes.paper}>
         <MTypography component="h1" variant="h5">
           Timeslot Selection
